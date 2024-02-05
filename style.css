@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+:root {
+  --scale-value: 2;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+*::selection {
+  background: transparent;
+}
+
+html {
+  /* changes the 1REM from 16px to 10px */
+  font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  font-family: "Press Start 2P", sans-serif;
+  height: 100vh;
+  background-color: #ccc5b9;
+  transition: all .8s ease;
+  overflow: hidden;
+}
+
+body.play {
+  overflow: visible;
+  transform: translateY(-100%);
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  animation: grow 1s infinite alternate;
+}
+
+@keyframes grow {
+
+  to {
+    transform: scale(1.2);
+  }
+}
+
+section {
+  height: 100%;
+  width: 100vw;
+}
+
+.start-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+}
+
+.btn {
+  border: none;
+  font-family: inherit;
+  text-align: center;
+  line-height: 1.6;
+  background-color: #fff8;
+  padding: 1rem 12rem;
+  font-size: 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.btn:hover {
+  background-color: #fff2;
+  box-shadow: 0 0 8px #0005;
+}
+
+.btn:active {
+  transform: scale(.96);
+}
+
+.game-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.simon-container {
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+  gap: 2px;
+  transform: scale(var(--scale-value));
+}
+
+@keyframes spinner {
+
+  0% {
+    transform: rotate(0deg) scale(var(--scale-value));
+  }
+
+  60% {
+    transform: rotate(940deg) scale(var(--scale-value));
+  }
+
+  100% {
+    transform: rotate(720deg) scale(var(--scale-value));
+  }
+
+}
+
+.say {
+  width: 10rem;
+  height: 10rem;
+  border-radius: 12rem 0 0 0;
+  border: 2px solid #000;
+  cursor: pointer;
+
+  /* transition: transform .3s ease; */
+}
+
+.say:hover {
+  border: 3px solid #000 !important;
+}
+
+.say-1 {
+  background-color: red;
+}
+
+.say-1:active {
+  transform: scale(.99);
+}
+
+
+.say-2 {
+  transform: rotate(90deg);
+  background-color: green;
+}
+
+.say-2:active {
+  transform: rotate(90deg) scale(.99);
+}
+
+.say-3 {
+  transform: rotate(270deg);
+  background-color: blue;
+}
+
+.say-3:active {
+  transform: rotate(270deg) scale(.99);
+}
+
+
+.say-4 {
+  transform: rotate(180deg);
+  background-color: yellow;
+}
+
+.say-4:active {
+  transform: rotate(180deg) scale(.99);
+}
+
+.play-again {
+  width: 110%;
+  height: 110%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  display: none;
+}
+
+.play-again .btn:hover {
+  background-color: #0008;
+  box-shadow: 0 0 18px #fff5;
+  color: #fff;
+}
+
+.level {
+  position: absolute;
+  top: 2rem;
+  font-size: 2.6rem;
+}
+
+@media (max-width:52em) {
+
+  :root {
+    --scale-value: 1.5;
+  }
+
+  h1 {
+    font-size: 1.4rem;
+    padding: 0 2rem;
+    line-height: 1.6;
+  }
+
+  .btn {
+    padding: 1rem 4rem;
+    font-size: 1.4rem;
+  }
+
+}
+
+@media (max-width: 21em) {
+  :root {
+    --scale-value: 1.2;
+  }
+
+  .level {
+    font-size: 2rem;
+  }
+}
