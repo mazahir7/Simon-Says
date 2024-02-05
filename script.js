@@ -108,10 +108,12 @@ const randomPicker = () => {
 const addEffect = (target) => {
   target.style.filter = "brightness(200%)";
   target.style.borderWidth = "3px";
+  target.style.boxShadow = "0 0 12px 3px rgba(255, 255, 0, 0.7)";
 }
 
 // removing the effect to the tile
 const removeEffect = (target) => {
   target.style.filter = "brightness(100%)";
   target.style.borderWidth = "2px";
+    target.style.boxShadow = "none";
 }
